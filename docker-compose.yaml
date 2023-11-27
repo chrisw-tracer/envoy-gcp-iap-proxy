@@ -1,0 +1,16 @@
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.28.0
+    ports:
+      - "8080:8080"
+      - "9901:9901"
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
+  auth-proxy:
+    build: ./
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+      - IAP_SERVICE_URL=${IAP_SERVICE_URL}
+      - IAP_SERVICE_AUDIENCE=${IAP_SERVICE_AUDIENCE}
+    volumes:
+      - ../secret/gcp_service_account.json:/gcp_service_account.json
