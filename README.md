@@ -1,12 +1,6 @@
 # envoy-gcp-iap-proxy
 A simple Go service for Envoy external auth and GCP Identity Aware Proxy
 
-I have been working with Google Cloud's identity aware proxy for a number of years, one of the ongoing challenges has been how 
-to deal with third party applications that don't integrate with it natively, especially when programmatic access is required. 
-
-On a recent project this created an issue specically when using a self-hosted deployment of Hashicorp Vault, a number of issues had been 
-raised over the years for Vault to support GCP IAP but to no avail.
-
 ## How this solves the Vault <> GCP IAP Issue
 This service works in tandem with Envoy proxy's external authz server, using Envoy as an in-cluster forward proxy for Vault.
 
