@@ -19,3 +19,6 @@ As request come in to Envoy, the authz server contacts our simple Golang service
 request.
 
 I'll add a diagram when I have some more time to better explain this
+
+## Security Concerns
+It should be noted, that caution needs to be excersised if using this service, you are effectively creating a mechanism to bypass Google Cloud Identity Aware Proxy, should this service ever be exposed publicly you may as well disable IAP. This should only be exposed on private networks, and where possible modified to use additional forms of authentication - mTLS or similar.
